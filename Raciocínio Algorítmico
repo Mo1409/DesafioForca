@@ -1,0 +1,25 @@
+palavra = [(input("Digite uma palavra: "))]
+tamanho = len(palavra[0])
+texto = (" ".join(palavra))
+vidas = 10
+resposta = ["_"] * tamanho
+
+print(f"A palavra tem {tamanho} letras")
+print(" ".join(resposta))
+
+for i in range(0, 10):
+    if resposta == list(palavra[0]):
+        print("Você venceu!")
+        break
+    print(f"{vidas} vidas restantes")
+    escolha = str(input("Digite a sua letra: "))
+    if escolha in list(palavra[0]):
+        for i2 in range(len(palavra[0])):
+            if escolha == list(palavra[0])[i2]:
+                resposta[i2] = escolha
+    else:
+        print("Letra não faz parte da palavra!")
+        vidas = vidas - 1
+
+    print(" ".join(resposta))
+print("Fim de Jogo!")
